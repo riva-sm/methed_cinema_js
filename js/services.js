@@ -15,7 +15,19 @@ const getData = (url) =>
     .catch((err) => console.log(err)); // отлавливаем ошибки в человекопонятном виде
 
 /* ассинхронная функция возвращает запрос */
+/* получаем топ трендов фильмов и сериалов за выбранный период */
 export const getTriends = async (type = "all", period = "week", page = 1) => {
   const url = `${BASE_URL}trending/${type}/${period}?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
+  return await getData(url);
+};
+
+/* получаем топ фильмов и сериалов за выбранный период */
+export const getTop = async (type, page = 1) => {
+  const url = `${BASE_URL}${type}/top_rated?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
+  return await getData(url);
+};
+/* получаем популярные фильмы и сериалы за выбранный период */
+export const getPopular = async (type, page = 1) => {
+  const url = `${BASE_URL}${type}/popular?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
   return await getData(url);
 };
