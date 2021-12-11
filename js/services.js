@@ -16,7 +16,7 @@ const getData = (url) =>
 
 /* ассинхронная функция возвращает запрос */
 /* получаем топ трендов фильмов и сериалов за выбранный период */
-export const getTriends = async (type = "all", period = "week", page = 3) => {
+export const getTriends = async (type = "all", period = "week", page = 1) => {
   const url = `${BASE_URL}trending/${type}/${period}?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
   return await getData(url);
 };
